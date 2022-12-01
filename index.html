@@ -1,6 +1,6 @@
 <html>
 <body>
-  <h2>Hello World! New</h2>
+  <h2>Hello World!</h2>
 	
 
 </body>
@@ -27,19 +27,31 @@
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
-		// Settings for Flows
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 
-		embedded_svc.settings.enabledFeatures = ['Flows'];
-		embedded_svc.settings.entryFeature = 'Flows';
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
 			'https://spiffinc--chatprep.sandbox.my.salesforce.com',
 			'https://spiffinc--chatprep.sandbox.my.salesforce-sites.com/test',
 			gslbBaseURL,
 			'00D3I0000008oqJ',
-			'Support_Form_Flow',
+			'Premium_Support_Form',
 			{
-				
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-ia4.salesforceliveagent.com/content',
+				deploymentId: '5723I000000CaS5',
+				buttonId: '5733I000000CaSF',
+				baseLiveAgentURL: 'https://d.la1-c1cs-ia4.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I3I000000CaRqUAK_184ca6801fb',
+				isOfflineSupportEnabled: true
 			}
 		);
 	};
